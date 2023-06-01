@@ -22,6 +22,27 @@ public:
 		balance -= money;
 	}
 
+	void addCompoundInterest()
+	{
+		balance += balance * compundInterestRatio;
+	}
+
+	void setCompoundInteresetValue(const double newRatio)
+	{
+		compundInterestRatio = newRatio;
+	}
+
+	int calculateNYearCompundInterestResult(int n)
+	{
+		int result = balance;
+		for (int i = 0; i < n; i++)
+		{
+			result += result * compundInterestRatio;
+		}
+		return result;
+	}
+
 private:
 	int balance;
+	double compundInterestRatio = 0.05;
 };
